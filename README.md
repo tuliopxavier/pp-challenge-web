@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### O que falta implementar
+- Paginação.
+- Responsividade
+- Busca
 
-## Getting Started
+### Pontos de melhorias no projetores
+- Tratamento de erro (página 404 e falhas em requisições).
+- Fetch dos dados com React Query.
+- Server Side Rendering.
+- Implementar testes.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# Sobre o desafio
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pedido Pago Challenge 
+O objetivo do desafio é avaliar as habilidades do candidato à vaga de front-end. Para o desafio disponibilizaremos 7 dias para o desenvolvimento da aplicação descrita abaixo.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Instruções para a entrega
+Para que a avaliação seja realizada o candidato deverá criar um repositório na sua conta do Github (crie uma, caso não possua) em seguida implementar o projeto descrito abaixo com um deploy do mesmo. Após o desenvolvimento, envie o **link do repositório** e o **link da aplicação publicada** para o seu contato da Pedido Pago.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Descrição do projeto 
+O candidato deverá consumir uma API mockada pela Pedido Pago, criando uma tela pixel perfect com as telas do Figma, garantindo que todas as funções da tela estejam funcionando e utilizando os dados da API.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Funcionalidades Requeridas
+- Configuração do axios para consumo da API
+- Todas as páginas o mais fiel possível com o Figma
+- A página precisa estar funcional 
+- Ultilizar todos os dados da API mockada
 
-## Learn More
+## Tecnologias Requeridas
 
-To learn more about Next.js, take a look at the following resources:
+- nextjs - Biblioteca usada para o desenvolvimento da aplicação;
+- axios - para consumo da API
+- emotion - para a criação de componentes e estilos
+- typescript - para o desenvolvimento e tipagem do código
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Você pode usar uma lib de componentes como Chakra ou Material UI para facilitar o desenvolvimento, desde que demonstre experiência com CSS por meio do emotion styled ou nativamente.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Diferenciais
+- Uso de testes (jest/cypress)
+- Lambda functions do Next
+- Uso de contextos e estados
 
-## Deploy on Vercel
+## Critérios de avaliação
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Seu projeto será avaliado de acordo com a qualidade do seu código e sua organização de arquivos do projeto, além do conhecimento utilizado em Typescript/Nextjs para o consumo da API.
