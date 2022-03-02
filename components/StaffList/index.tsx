@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { StaffContext } from '../../providers/DataProvider';
 import DropdownStaffAction from '../DropdownStaffAction';
 import { FiSearch } from 'react-icons/fi';
+import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import StaffListStyled from './styles';
 import { Staff } from '../../types/Staff';
 
@@ -10,6 +11,7 @@ export const StaffList = () => {
   const agent = useContext(StaffContext);
   const [search, setSearch] = useState<string>('');
   const [filteredStaff, setFilteredStaff] = useState<Staff[]>([]);
+  const [listQuantity, setListQuantity] = useState<number>(5);
 
   useEffect(() => {
     const newAgentList = agent.filter( agentItem => {
@@ -37,7 +39,7 @@ export const StaffList = () => {
       </div>
 
       <dl>
-        {filteredStaff?.map((agent:Staff)=>{
+        {filteredStaff.slice(0, (listQuantity)).map((agent:Staff)=>{
             return(
               <div className='agent-list-line' key={agent?.agent_id} >
 
@@ -85,6 +87,26 @@ export const StaffList = () => {
         })}
 
       </dl>
+
+      <section className="pagination">
+
+        <div className="select-pagination">
+          <p>Mostrando {listQuantity < filteredStaff.length ? listQuantity : filteredStaff.length} de {filteredStaff.length} registros</p>
+          <select name="list-quantity" id="list-quantity" defaultValue='5' onChange={(e)=>setListQuantity(parseInt(e.target.value))}>
+            <option key='5' value="5">5</option>
+            <option key='10' value="10">10</option>
+            <option key='25' value="25">25</option>
+            <option key='50' value="50">50</option>
+          </select>
+        </div>
+
+        <div className="button-pagination">
+          <button disabled> <RiArrowLeftSLine/> </button>
+          <p>1 de 10</p>
+          <button> <RiArrowRightSLine/> </button>
+        </div>
+      
+      </section>
 
     </StaffListStyled>
   );

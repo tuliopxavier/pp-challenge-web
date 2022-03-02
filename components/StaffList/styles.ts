@@ -154,9 +154,88 @@ const StaffListStyled = styled.div`
     }
   }
 
+  // PAGINATION
+
+  section.pagination {
+    display: flex;
+    justify-content: space-between;
+
+    & .select-pagination {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      & p {
+        color: ${colors.darkGray};
+      }
+
+      & select {
+        height: 2.5rem;
+        padding: .5rem 1rem;
+        border-radius: .5rem;
+        
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        overflow: visible;
+        color: ${colors.darkGray};
+        cursor: pointer;
+
+        & option {
+          padding: 1rem;
+        }
+      }
+    }
+
+    & .button-pagination {
+      display: flex;
+      align-items: center;
+
+      & button {
+        color: ${colors.darkGray};
+        background-color: transparent;
+        height: 2.5rem;
+        width: 2.5rem;
+        border: 2px solid ${colors.darkGray};
+        cursor: pointer;
+        transition: all 0.25s ease;
+
+        & svg {
+          height: 1.5rem;
+          width: auto;
+        }
+
+        &:first-of-type {
+          border-radius: .5rem 0 0 .5rem;
+        }
+
+        &:last-of-type {
+          border-radius: 0 .5rem .5rem 0;
+        }
+
+        &:hover {
+          border: none;
+          background-color: ${colors.lightGray};
+        }
+
+        &:disabled {
+          opacity: .25;
+          cursor: not-allowed;
+        }
+      }
+
+      & p {
+        color: ${colors.darkGray};
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 1rem;
+      }
+    }
+  }
+
   .inactive {
     opacity: .35;
   }
-
 `;
 export default StaffListStyled;
