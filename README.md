@@ -1,5 +1,4 @@
 ### O que falta implementar
-- Paginação.
 - Responsividade
 
 ### Pontos de melhorias no projetores
