@@ -12,6 +12,17 @@ export const StaffList = () => {
   const [search, setSearch] = useState<string>('');
   const [filteredStaff, setFilteredStaff] = useState<Staff[]>([]);
   const [listQuantity, setListQuantity] = useState<number>(5);
+  const [counter, setCounter] = useState<number>(0);
+
+  function handlePaginationPlus() {
+    if (counter >= Math.floor(filteredStaff.length / listQuantity)) return;
+    setCounter(counter + 1);
+  };
+
+  function handlePaginationMinus() {
+    if (counter === 0) return;
+    setCounter(counter - 1);
+  };
 
   useEffect(() => {
     const newAgentList = agent.filter( agentItem => {
@@ -19,6 +30,10 @@ export const StaffList = () => {
     });
     setFilteredStaff(newAgentList);
   },[search, agent]);
+
+  useEffect(() => {
+    filteredStaff.length / listQuantity <= 1 && setCounter(0);
+  },[listQuantity, filteredStaff]);
 
   return (
     <StaffListStyled>
@@ -39,7 +54,7 @@ export const StaffList = () => {
       </div>
 
       <dl>
-        {filteredStaff.slice(0, (listQuantity)).map((agent:Staff)=>{
+        {filteredStaff.slice(listQuantity * counter, listQuantity * (counter + 1)).map((agent:Staff)=>{
             return(
               <div className='agent-list-line' key={agent?.agent_id} >
 
@@ -101,9 +116,9 @@ export const StaffList = () => {
         </div>
 
         <div className="button-pagination">
-          <button disabled> <RiArrowLeftSLine/> </button>
-          <p>1 de 10</p>
-          <button> <RiArrowRightSLine/> </button>
+          <button disabled={!Boolean(counter)} onClick={handlePaginationMinus}> <RiArrowLeftSLine/> </button>
+          <p>{counter + 1} de {Math.ceil(filteredStaff.length / listQuantity)}</p>
+          <button disabled={(counter >= Math.floor(filteredStaff.length / listQuantity)) ? true : false} onClick={handlePaginationPlus}> <RiArrowRightSLine/> </button>
         </div>
       
       </section>
