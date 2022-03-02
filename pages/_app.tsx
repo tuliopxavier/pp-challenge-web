@@ -9,12 +9,12 @@ import Header from '../components/Header';
 import api from '../services/api';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [staff, setStaff] = useState<Staff[]>([]);
+  const [agent, setAgent] = useState<Staff[]>([]);
   const [roles, setRoles] = useState<Roles[]>([]);
 
-  const getStaff = async () => {
+  const getAgent = async () => {
     const response = await api.get('agents');
-    setStaff(response.data.items);
+    setAgent(response.data.items);
   };
 
   const getRoles = async () => {
@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   useEffect(() => {
-    getStaff();
+    getAgent();
     getRoles();
   }, []);
 
@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Pedido Pago</title>
       </Head>
 
-      <StaffContext.Provider value={staff}>
+      <StaffContext.Provider value={agent}>
         <RolesContext.Provider value={roles}>
           <Header />
           <Component {...pageProps} />
