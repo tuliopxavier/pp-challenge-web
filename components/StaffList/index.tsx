@@ -25,22 +25,19 @@ export const StaffList = () => {
   };
 
   useEffect(() => {
-    const newAgentList = agent.filter( agentItem => {
+    const newAgentList = agent.filter(agentItem => {
       return (agentItem.name.toLowerCase().includes(search.toLowerCase()))
     });
     setFilteredStaff(newAgentList);
-  },[search, agent]);
-
-  useEffect(() => {
-    filteredStaff.length / listQuantity <= 1 && setCounter(0);
-  },[listQuantity, filteredStaff]);
+    setCounter(0);
+  }, [search, agent, listQuantity]);
 
   return (
     <StaffListStyled>
       <form onSubmit={(e) => e.preventDefault()}>
         <label htmlFor='search'> Perquisar por </label>
         <FiSearch />
-        <input id='search' type='search' placeholder='Pesquise por nome' onChange={(e) => setSearch(e.target.value)}/>
+        <input id='search' type='search' placeholder='Pesquise por nome' onChange={(e) => setSearch(e.target.value)} />
       </form>
 
       <h3>Listagem de colaboradores</h3>
@@ -54,12 +51,12 @@ export const StaffList = () => {
       </div>
 
       <dl>
-        {filteredStaff.slice(listQuantity * counter, listQuantity * (counter + 1)).map((agent:Staff)=>{
-            return(
-              <div className='agent-list-line' key={agent?.agent_id} >
+        {filteredStaff.slice(listQuantity * counter, listQuantity * (counter + 1)).map((agent: Staff) => {
+          return (
+            <div className='agent-list-line' key={agent?.agent_id} >
 
-                <div className="agent">
-                { agent.status === 'active' ?
+              <div className="agent">
+                {agent.status === 'active' ?
                   // If agent active
                   <>
                     <div className="avatar-name">
@@ -96,9 +93,9 @@ export const StaffList = () => {
                     <DropdownStaffAction agentId={agent.agent_id} />
                   </>
                 }
-                </div>
               </div>
-            );
+            </div>
+          );
         })}
 
       </dl>
@@ -107,7 +104,7 @@ export const StaffList = () => {
 
         <div className="select-pagination">
           <p>Mostrando {listQuantity < filteredStaff.length ? listQuantity : filteredStaff.length} de {filteredStaff.length} registros</p>
-          <select name="list-quantity" id="list-quantity" defaultValue='5' onChange={(e)=>setListQuantity(parseInt(e.target.value))}>
+          <select name="list-quantity" id="list-quantity" defaultValue='5' onChange={(e) => setListQuantity(parseInt(e.target.value))}>
             <option key='5' value="5">5</option>
             <option key='10' value="10">10</option>
             <option key='25' value="25">25</option>
@@ -116,11 +113,11 @@ export const StaffList = () => {
         </div>
 
         <div className="button-pagination">
-          <button disabled={!Boolean(counter)} onClick={handlePaginationMinus}> <RiArrowLeftSLine/> </button>
+          <button disabled={!Boolean(counter)} onClick={handlePaginationMinus}> <RiArrowLeftSLine /> </button>
           <p>{counter + 1} de {Math.ceil(filteredStaff.length / listQuantity)}</p>
-          <button disabled={(counter >= Math.floor(filteredStaff.length / listQuantity)) ? true : false} onClick={handlePaginationPlus}> <RiArrowRightSLine/> </button>
+          <button disabled={(counter >= Math.floor(filteredStaff.length / listQuantity)) ? true : false} onClick={handlePaginationPlus}> <RiArrowRightSLine /> </button>
         </div>
-      
+
       </section>
 
     </StaffListStyled>
