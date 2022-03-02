@@ -22,7 +22,7 @@ export const StaffList = () => {
 
   return (
     <StaffListStyled>
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <label htmlFor='search'> Perquisar por </label>
         <FiSearch />
         <input id='search' type='search' placeholder='Pesquise por nome' onChange={(e) => setSearch(e.target.value)}/>

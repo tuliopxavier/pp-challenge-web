@@ -20,7 +20,7 @@ export const RolesList = () => {
 
   return (
     <RolesListStyled>
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <label htmlFor='search'>Perquisar por</label>
         <FiSearch />
         <input id='search' type='search' placeholder='Pesquise por cargos' onChange={(e) => setSearch(e.target.value)} />
