@@ -1,7 +1,6 @@
 ### O que falta implementar
 - Paginação.
 - Responsividade
-- Busca
 
 ### Pontos de melhorias no projetores
 - Tratamento de erro (página 404 e falhas em requisições).
