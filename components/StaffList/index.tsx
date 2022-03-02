@@ -1,20 +1,29 @@
-import type { Staff } from '../../types/Staff';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { StaffContext } from '../../providers/DataProvider';
 import DropdownStaffAction from '../DropdownStaffAction';
 import { FiSearch } from 'react-icons/fi';
 import StaffListStyled from './styles';
+import { Staff } from '../../types/Staff';
 
 export const StaffList = () => {
-  const staff = useContext(StaffContext);
+  const agent = useContext(StaffContext);
+  const [search, setSearch] = useState<string>('');
+  const [filteredStaff, setFilteredStaff] = useState<Staff[]>([]);
+
+  useEffect(() => {
+    const newAgentList = agent.filter( agentItem => {
+      return (agentItem.name.toLowerCase().includes(search.toLowerCase()))
+    });
+    setFilteredStaff(newAgentList);
+  },[search, agent]);
 
   return (
     <StaffListStyled>
       <form>
         <label htmlFor='search'> Perquisar por </label>
         <FiSearch />
-        <input id='search' type='search' placeholder='Pesquise por nome ou cpf' />
+        <input id='search' type='search' placeholder='Pesquise por nome' onChange={(e) => setSearch(e.target.value)}/>
       </form>
 
       <h3>Listagem de colaboradores</h3>
@@ -28,7 +37,7 @@ export const StaffList = () => {
       </div>
 
       <dl>
-        {staff?.map((agent:Staff)=>{
+        {filteredStaff?.map((agent:Staff)=>{
             return(
               <div className='agent-list-line' key={agent?.agent_id} >
 
