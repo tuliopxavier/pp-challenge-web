@@ -1,9 +1,7 @@
 ### Pontos de melhorias no projetores
-- Tratamento de erro (página 404 e falhas em requisições).
 - Fetch dos dados com React Query.
 - Server Side Rendering.
 - Implementar testes.
-
 
 # Sobre o desafio
 
