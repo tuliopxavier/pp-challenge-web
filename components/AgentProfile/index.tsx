@@ -21,7 +21,7 @@ const AgentProfile = () => {
       setAgentData(response.data.agent);
     }
     catch (error) {
-      swal("Colaborador não encontrado", "Por favor, verifique o ocorrido com o responsável.", "error");
+      swal("Colaborador não encontrado", "Por favor, verifique o ocorrido com o responsável.", "warning");
       router.push('/');
     };
   };
