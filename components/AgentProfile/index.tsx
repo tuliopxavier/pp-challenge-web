@@ -8,6 +8,7 @@ import { FiUser, FiPhoneCall, FiCalendar } from 'react-icons/fi';
 import { HiOutlineIdentification } from 'react-icons/hi';
 import AgentContentContainerStyled from './styles';
 import LoadingPage from '../LoadingPage';
+import swal from 'sweetalert'
 
 const AgentProfile = () => {
   const [agentData, setAgentData] = useState<Agent>({} as Agent);
@@ -20,7 +21,8 @@ const AgentProfile = () => {
       setAgentData(response.data.agent);
     }
     catch (error) {
-      alert('Colaborador não encontrado. Tente mais tarde.');
+      swal("Colaborador não encontrado", "Por favor, verifique o ocorrido com o responsável.", "error");
+      router.push('/');
     };
   };
 

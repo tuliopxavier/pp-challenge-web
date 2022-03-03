@@ -1,7 +1,7 @@
 import type { Roles } from '../../types/Roles';
 import { useContext, useEffect, useState } from 'react';
 import { RolesContext } from '../../providers/DataProvider';
-import DropdownRoleAction from '../DropdownRoleAction copy';
+import DropdownRoleAction from '../DropdownRoleAction';
 import { FiSearch } from 'react-icons/fi';
 import RolesListStyled from './styles';
 import LoadingPage from '../LoadingPage';
