@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { colors } from '../../styles/variables';
+import { breakpoints, colors } from '../../styles/variables';
 
 const StaffListStyled = styled.div`
 
@@ -77,6 +77,10 @@ const StaffListStyled = styled.div`
     padding-left: 2rem;
     gap: 2rem;
 
+    @media (max-width: ${breakpoints[992]}) {
+      gap: .5rem;
+    }
+
     & h6 {
       color: ${colors.darkGray};
       font-size: 12px;
@@ -103,19 +107,25 @@ const StaffListStyled = styled.div`
         padding-left: 0;
         gap: 2rem;
 
+        @media (max-width: ${breakpoints[992]}) {
+          gap: .5rem;
+        }
+
         & .avatar-name {
           display: flex;
           align-items: center;
           gap: .5rem;
 
           & .agent-avatar {
-            width: 32px;
-            height: 32px;
+            min-width: 2rem;
+            min-height: 2rem;
+            max-width: 2rem;
+            max-height: 2rem;
             border-radius: 50%;
             overflow: hidden;
           }
 
-          & p {
+          & h5 {
             color: ${colors.darkGray};
             font-size: 12px;
             font-weight: 600;

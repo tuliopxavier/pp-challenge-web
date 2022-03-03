@@ -1,3 +1,4 @@
+import type { Staff } from '../../types/Staff';
 import { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { StaffContext } from '../../providers/DataProvider';
@@ -5,23 +6,23 @@ import DropdownStaffAction from '../DropdownStaffAction';
 import { FiSearch } from 'react-icons/fi';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import StaffListStyled from './styles';
-import { Staff } from '../../types/Staff';
+import LoadingPage from '../LoadingPage';
 
 export const StaffList = () => {
   const agent = useContext(StaffContext);
   const [search, setSearch] = useState<string>('');
   const [filteredStaff, setFilteredStaff] = useState<Staff[]>([]);
   const [listQuantity, setListQuantity] = useState<number>(5);
-  const [counter, setCounter] = useState<number>(0);
+  const [pageCounter, setPageCounter] = useState<number>(0);
 
   function handlePaginationPlus() {
-    if (counter >= Math.floor(filteredStaff.length / listQuantity)) return;
-    setCounter(counter + 1);
+    if (pageCounter >= Math.floor(filteredStaff.length / listQuantity)) return null;
+    setPageCounter(pageCounter + 1);
   };
 
   function handlePaginationMinus() {
-    if (counter === 0) return;
-    setCounter(counter - 1);
+    if (pageCounter === 0) return null;
+    setPageCounter(pageCounter - 1);
   };
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export const StaffList = () => {
       return (agentItem.name.toLowerCase().includes(search.toLowerCase()))
     });
     setFilteredStaff(newAgentList);
-    setCounter(0);
+    setPageCounter(0);
   }, [search, agent, listQuantity]);
 
   return (
@@ -51,7 +52,7 @@ export const StaffList = () => {
       </div>
 
       <dl>
-        {filteredStaff.slice(listQuantity * counter, listQuantity * (counter + 1)).map((agent: Staff) => {
+        {filteredStaff[0] ? filteredStaff?.slice(listQuantity * pageCounter, listQuantity * (pageCounter + 1)).map((agent: Staff) => {
           return (
             <div className='agent-list-line' key={agent?.agent_id} >
 
@@ -63,7 +64,7 @@ export const StaffList = () => {
                       <div className='agent-avatar' >
                         <Image src={agent?.image} width={32} height={32} alt={`avatar de ${agent?.name}`} />
                       </div>
-                      <p>{agent?.name}</p>
+                      <h5>{agent?.name}</h5>
                     </div>
                     <p>{agent?.department}</p>
                     <p>{agent?.role}</p>
@@ -81,7 +82,7 @@ export const StaffList = () => {
                       <div className='agent-avatar' >
                         <Image src={agent.image} width={32} height={32} alt={`avatar de ${agent?.name}`} />
                       </div>
-                      <p>{agent?.name}</p>
+                      <h5>{agent?.name}</h5>
                     </div>
                     <p className='inactive'>{agent?.department}</p>
                     <p className='inactive'>{agent?.role}</p>
@@ -96,7 +97,7 @@ export const StaffList = () => {
               </div>
             </div>
           );
-        })}
+        }) : <LoadingPage/> }
 
       </dl>
 
@@ -113,9 +114,9 @@ export const StaffList = () => {
         </div>
 
         <div className="button-pagination">
-          <button disabled={!Boolean(counter)} onClick={handlePaginationMinus}> <RiArrowLeftSLine /> </button>
-          <p>{counter + 1} de {Math.ceil(filteredStaff.length / listQuantity)}</p>
-          <button disabled={(counter >= Math.floor(filteredStaff.length / listQuantity)) ? true : false} onClick={handlePaginationPlus}> <RiArrowRightSLine /> </button>
+          <button disabled={!Boolean(pageCounter)} onClick={handlePaginationMinus}> <RiArrowLeftSLine /> </button>
+          <p>{pageCounter + 1} de {Math.ceil(filteredStaff.length / listQuantity)}</p>
+          <button disabled={(pageCounter >= Math.floor(filteredStaff.length / listQuantity)) ? true : false} onClick={handlePaginationPlus}> <RiArrowRightSLine /> </button>
         </div>
 
       </section>

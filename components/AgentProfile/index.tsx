@@ -7,6 +7,7 @@ import api from '../../services/api';
 import { FiUser, FiPhoneCall, FiCalendar } from 'react-icons/fi';
 import { HiOutlineIdentification } from 'react-icons/hi';
 import AgentContentContainerStyled from './styles';
+import LoadingPage from '../LoadingPage';
 
 const AgentProfile = () => {
   const [agentData, setAgentData] = useState<Agent>({} as Agent);
@@ -29,7 +30,8 @@ const AgentProfile = () => {
 
   return (
     <AgentContentContainerStyled>
-
+      {agentData.image ?
+      <>
       <div className='profile-header'>
         <div className='avatar-wrapper'>
           {agentData?.image ?
@@ -73,7 +75,7 @@ const AgentProfile = () => {
           </div>
           <div className='agent-data'>
             <small>Nascimento</small>
-            <p>{agentData.document?.number}</p>
+            <p>{agentData?.birth_date?.slice(8, 10)}/{agentData?.birth_date?.slice(5, 7)}/{agentData?.birth_date?.slice(0, 4)}</p>
           </div>
         </div>
 
@@ -118,7 +120,8 @@ const AgentProfile = () => {
           </div>
         </div>
       </section>
-
+      </> : <LoadingPage/>
+      }
 
 
 

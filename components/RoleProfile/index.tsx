@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import api from '../../services/api';
 import RoleContentContainerStyled from './styles';
 import CustomCheckbox from '../CustomCheckbox';
+import LoadingPage from '../LoadingPage';
 
 type Role = {
     department: string;
@@ -40,7 +41,9 @@ const RoleProfile = () => {
 
     return (
         <RoleContentContainerStyled>
-
+            
+        {roleData.name ? 
+        <>
             <section className="roles-data-section">
                 <h3>Dados do cargo</h3>
 
@@ -83,7 +86,8 @@ const RoleProfile = () => {
                     )
                 })}
             </ul>
-
+        </> : <LoadingPage/> }
+        
         </RoleContentContainerStyled>
     );
 };

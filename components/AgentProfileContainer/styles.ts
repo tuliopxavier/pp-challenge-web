@@ -2,6 +2,9 @@ import styled from '@emotion/styled';
 import { colors, header } from '../../styles/variables';
 
 const AgentProfileContainerStyled = styled.div`
+  
+  width: 919px;
+  max-width: 60rem;
   height: 100%;
   margin-left: auto;
   margin-right: auto;

@@ -1,14 +1,19 @@
 import styled from '@emotion/styled';
-import { colors } from '../../styles/variables';
+import { breakpoints, colors } from '../../styles/variables';
 
 const StaffBoxStyled = styled.div`
   background-color: #fff;
-  width: 956px;
+  width: 919px;
+  max-width: 60rem;
   height: 100%;
   margin-bottom: 5rem;
   border-radius: .5rem;
   padding: 1.5rem;
   box-shadow: 0px 4px 8px rgba(165, 171, 179, 0.16);
+
+  @media (max-width: ${breakpoints[992]}) {
+    width: 100%;
+  }
 
   .tabs {
     display: flex;
@@ -17,10 +22,10 @@ const StaffBoxStyled = styled.div`
       background-color: transparent;
       border: none;
       text-align: center;
-      width: 196px;
+      width: 13rem;
       border-bottom: 2px solid ${colors.lightGray};
       margin-bottom: 2.5rem;
-      transition: all .25s ease;
+      transition: background-color .25s ease;
       
       &:hover {
         background-color: ${colors.lightGray};
@@ -45,7 +50,7 @@ const StaffBoxStyled = styled.div`
       }
       
       &:last-of-type {
-        width: 910px;
+        width: 100%;
         background-color: initial;
         cursor: initial;
       }

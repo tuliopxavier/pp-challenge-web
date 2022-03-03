@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import StaffList from '../StaffList';
-import RulesList from '../RolesList';
+import RolesList from '../RolesList';
 import MainContentContainerStyled from './styles';
 
 const MainContentContainer = () => {
@@ -19,7 +19,7 @@ const MainContentContainer = () => {
           <button className="tab" disabled> </button>
         </div>
 
-        {isActive === 'staff' ? <StaffList/> : <RulesList />}
+        {isActive === 'staff' ? <StaffList/> : <RolesList />}
 
       </MainContentContainerStyled>
     </>

@@ -10,4 +10,13 @@ export const colors = {
 
 export const header = {
     height: '3.8rem'
-}
+};
+
+export const breakpoints = {
+    0: 0,
+    576: '576px',
+    768: '768px',
+    992: '992px',
+    1200: '1200px',
+    1400: '1400px'
+};
