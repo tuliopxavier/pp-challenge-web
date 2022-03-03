@@ -4,6 +4,7 @@ import { RolesContext } from '../../providers/DataProvider';
 import DropdownRoleAction from '../DropdownRoleAction copy';
 import { FiSearch } from 'react-icons/fi';
 import RolesListStyled from './styles';
+import LoadingPage from '../LoadingPage';
 
 export const RolesList = () => {
   const roles = useContext(RolesContext);
@@ -35,7 +36,7 @@ export const RolesList = () => {
       </div>
 
       <dl>
-        {filteredRoles?.map((role: Roles, id) => {
+        {filteredRoles[0] ? filteredRoles?.map((role: Roles, id) => {
           return (
             <div className='role-list-line' key={id}>
               <div className='role'>
@@ -47,7 +48,7 @@ export const RolesList = () => {
               </div>
             </div>
           );
-        })}
+        }) : <LoadingPage/>}
       </dl>
     </RolesListStyled>
   );

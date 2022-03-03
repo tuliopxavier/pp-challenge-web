@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { colors } from '../../styles/variables';
+import { colors, breakpoints } from '../../styles/variables';
 
 const SideBarStyled = styled.aside`
   width: 256px;
@@ -9,7 +9,10 @@ const SideBarStyled = styled.aside`
   background-color: #fff;
   border-bottom: 1px solid ${colors.lightGray};
   box-shadow: 0px 4px 8px rgba(165, 171, 179, 0.16);
-
   z-index: -1;
+
+  @media (max-width: ${breakpoints[1200]}) {
+    display: none;
+  }
 `;
 export default SideBarStyled;

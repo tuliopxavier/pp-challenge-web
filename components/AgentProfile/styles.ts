@@ -1,14 +1,19 @@
 import styled from '@emotion/styled';
-import { header, colors } from '../../styles/variables';
+import { breakpoints, colors } from '../../styles/variables';
 
 const AgentContainerStyled = styled.div`
   background-color: #fff;
-  width: 956px;
+  width: 919px;
+  max-width: 60rem;
   height: 100%;
   margin-bottom: 5rem;
   border-radius: 0.5rem;
   padding: 1.5rem;
   box-shadow: 0px 4px 8px rgba(165, 171, 179, 0.16);
+
+  @media (max-width: ${breakpoints[992]}) {
+    width: 95vw;
+  }
 
   & .profile-header {
     display: flex;
@@ -59,8 +64,14 @@ const AgentContainerStyled = styled.div`
     display: flex;
     gap: 1.5rem;
 
+    @media (max-width: ${breakpoints[992]}) {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
     & .agent-infos {
       display: flex;
+      width: 100%;
       align-items: center;
       background-color: #f5faf8;
       border: 2px solid #cad6d1;
@@ -143,7 +154,7 @@ const AgentContainerStyled = styled.div`
         }
 
         & select {
-          width: 26rem;
+          width: 100%;
           height: 3.5rem;
           padding: 1rem 1.5rem 1rem 1.25rem;
           border-radius: 0.5rem;

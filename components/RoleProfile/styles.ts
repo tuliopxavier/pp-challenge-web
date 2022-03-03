@@ -1,14 +1,19 @@
 import styled from '@emotion/styled';
-import { header, colors } from '../../styles/variables';
+import { header, colors, breakpoints } from '../../styles/variables';
 
 const RoleContentContainerStyled = styled.div`
   background-color: #fff;
-  width: 956px;
+  width: 919px;
+  max-width: 60rem;
   height: 100%;
   margin-bottom: 5rem;
   border-radius: 0.5rem;
   padding: 1.5rem;
   box-shadow: 0px 4px 8px rgba(165, 171, 179, 0.16);
+
+  @media (max-width: ${breakpoints[992]}) {
+    width: 95vw;
+  }
 
   // ROLES DATA SECTION
 
@@ -26,6 +31,10 @@ const RoleContentContainerStyled = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
+
+      @media (max-width: ${breakpoints[992]}) {
+        grid-template-columns: 1fr;
+      }
 
       & .select-wrapper {
         position: relative;
