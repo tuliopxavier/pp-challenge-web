@@ -1,39 +1,19 @@
-### Pontos de melhorias no projetores
-- Fetch dos dados com React Query.
-- Server Side Rendering.
-- Implementar testes.
+### Considerações sobre esse projeto
 
-# Sobre o desafio
+Antes de tudo, muito obrigado por me propor esse desafio. No geral, vi que foi bem pensado e estruturado, com protótipo no Figma e endpoints de API Rest.
 
-## Pedido Pago Challenge 
-O objetivo do desafio é avaliar as habilidades do candidato à vaga de front-end. Para o desafio disponibilizaremos 7 dias para o desenvolvimento da aplicação descrita abaixo.
+Fiz toda a implementação usando apenas as bibliotecas propostas, em cerca de 4 dias, várias funcionalidades desse projeto foram construidas do zero, usando apenas Typescript e lógica de programação. A escolha de utiliar Styled do Emotion é também pelo mesmo motivo, fazer do zero de forma completamente customizada sem utilização de biblioteca de componentes.
 
-## Instruções para a entrega
-Para que a avaliação seja realizada o candidato deverá criar um repositório na sua conta do Github (crie uma, caso não possua) em seguida implementar o projeto descrito abaixo com um deploy do mesmo. Após o desenvolvimento, envie o **link do repositório** e o **link da aplicação publicada** para o seu contato da Pedido Pago.
+Tem apenas uma excessão, a utilização da biblioteca Sweet Alert para configurar alertas em tela, além de React Icons para os ícones, para mostrar que, se for necessário (e no dia a dia será), posso trabalhar tranquilamente com biblioteca de terceiros.
 
-## Descrição do projeto 
-O candidato deverá consumir uma API mockada pela Pedido Pago, criando uma tela pixel perfect com as telas do Figma, garantindo que todas as funções da tela estejam funcionando e utilizando os dados da API.
+Fiz gerenciamento de estado utilizando o Context API. Se for preciso escalar, consumindo muitos dados, iria a priori para alguma solução acrescentando React Query.
 
-## Funcionalidades Requeridas
-- Configuração do axios para consumo da API
-- Todas as páginas o mais fiel possível com o Figma
-- A página precisa estar funcional 
-- Ultilizar todos os dados da API mockada
+Após avaliar o tempo que teria para a entrega, vi que não conseguiria fazer testing, mas certamente o farei nos próximos dias. Posso demonstrar conhecimento em Jest aprensentando outros projetos que já desenvolvi, se for o caso.
 
-## Tecnologias Requeridas
+Desenvolvi também controlled components e custom hooks.
 
-- nextjs - Biblioteca usada para o desenvolvimento da aplicação;
-- axios - para consumo da API
-- emotion - para a criação de componentes e estilos
-- typescript - para o desenvolvimento e tipagem do código
+Sobre Typescript, tomei um cuidado especial de deixar o projeto muito bem tipado.
 
-Você pode usar uma lib de componentes como Chakra ou Material UI para facilitar o desenvolvimento, desde que demonstre experiência com CSS por meio do emotion styled ou nativamente.
+Tem muitos pequenos detalhes, mas vou deixar o projeto e o código falarem por si só. Espero que 
+Fico a disposição para qualquer esclarecimento. Muito Orbigado
 
-## Diferenciais
-- Uso de testes (jest/cypress)
-- Lambda functions do Next
-- Uso de contextos e estados
-
-## Critérios de avaliação
-
-Seu projeto será avaliado de acordo com a qualidade do seu código e sua organização de arquivos do projeto, além do conhecimento utilizado em Typescript/Nextjs para o consumo da API.
