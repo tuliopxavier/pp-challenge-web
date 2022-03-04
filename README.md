@@ -1,6 +1,7 @@
 ## Link para o projeto em produção 
 https://pp-challenge-web-tulio-xavier.vercel.app/
 
+<hr>
 
 ### Considerações sobre esse projeto
 
@@ -18,8 +19,10 @@ Desenvolvi também controlled components e custom hooks.
 
 Sobre Typescript, tomei um cuidado especial de deixar o projeto muito bem tipado.
 
-Tem muitos pequenos detalhes, mas vou deixar o projeto e o código falarem por si só. Espero que 
-Fico a disposição para qualquer esclarecimento. Muito Orbigado
+Tem muitos pequenos detalhes, mas vou deixar o projeto e o código falarem por si só.
+Fico a disposição para qualquer esclarecimento. Muito Orbigado!
+
+<hr>
 
 
 - Link para o repositório desafio:
