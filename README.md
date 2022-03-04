@@ -1,3 +1,7 @@
+## Link para o projeto em produção 
+https://pp-challenge-web-tulio-xavier.vercel.app/
+
+
 ### Considerações sobre esse projeto
 
 Antes de tudo, muito obrigado por me propor esse desafio. No geral, vi que foi bem pensado e estruturado, com protótipo no Figma e endpoints de API Rest.
@@ -17,3 +21,12 @@ Sobre Typescript, tomei um cuidado especial de deixar o projeto muito bem tipado
 Tem muitos pequenos detalhes, mas vou deixar o projeto e o código falarem por si só. Espero que 
 Fico a disposição para qualquer esclarecimento. Muito Orbigado
 
+
+- Link para o repositório desafio:
+https://github.com/pedidopago/pp-challenge-web#readme
+
+- API do desafio:
+https://documenter.getpostman.com/view/17430395/UVkgxeaT
+
+- Protótipo no Figma:
+https://www.figma.com/file/yUwchJAe2BcgmmBp6Qi3Ld/Tela-de-Colaboradores---Desafio-Front-end?node-id=1064%3A3857
